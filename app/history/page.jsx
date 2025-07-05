@@ -95,38 +95,7 @@ export default function HistoryPage() {
             {record.description && <p className="text-sm text-gray-700 dark:text-gray-300">Description: {record.description}</p>}
           </>
         );
-      case 'OBD CSV':
-        return (
-          <>
-            {record.speed && <p className="text-sm text-gray-700 dark:text-gray-300">Speed: {record.speed} km/h</p>}
-            {record.rpm && <p className="text-sm text-gray-700 dark:text-gray-300">RPM: {record.rpm}</p>}
-            {record.fuelLevel && <p className="text-sm text-gray-700 dark:text-gray-300">Fuel Level: {record.fuelLevel}%</p>}
-            {record.engineLoad && <p className="text-sm text-gray-700 dark:text-gray-300">Engine Load: {record.engineLoad}%</p>}
-            {record.throttlePos && <p className="text-sm text-gray-700 dark:text-gray-300">Throttle Position: {record.throttlePos}%</p>}
-            {record.DTCs && record.DTCs !== 'No Faults' && <p className="text-sm text-red-600 dark:text-red-400">DTCs: {record.DTCs}</p>}
-          </>
-        );
-      case 'Alcohol CSV':
-        return (
-          <>
-            {record.alcoholLevel && <p className="text-sm text-gray-700 dark:text-gray-300">Alcohol Level: {record.alcoholLevel}</p>}
-            {record.status && <p className="text-sm text-gray-700 dark:text-gray-300">Status: {record.status}</p>}
-          </>
-        );
-      case 'Drowsiness CSV':
-        return (
-          <>
-            {record.drowsinessDetected && <p className="text-sm text-gray-700 dark:text-gray-300">Drowsiness Detected: {record.drowsinessDetected ? 'Yes' : 'No'}</p>}
-            {record.status && <p className="text-sm text-gray-700 dark:text-gray-300">Status: {record.status}</p>}
-          </>
-        );
-      case 'Visibility CSV':
-        return (
-          <>
-            {record.visibilityLevel && <p className="text-sm text-gray-700 dark:text-gray-300">Visibility Level: {record.visibilityLevel}</p>}
-            {record.weatherCondition && <p className="text-sm text-gray-700 dark:text-gray-300">Weather: {record.weatherCondition}</p>}
-          </>
-        );
+
       default:
         return (
           <p className="text-sm text-gray-700 dark:text-gray-300">
@@ -154,7 +123,7 @@ export default function HistoryPage() {
                 <Label htmlFor="vehicleNumber">Vehicle Number</Label>
                 <Input
                   id="vehicleNumber"
-                  placeholder="e.g., MH12AB1234"
+                  placeholder="e.g., MH12ABXXXX"
                   value={vehicleNumber}
                   onChange={(e) => setVehicleNumber(e.target.value)}
                   onKeyPress={(e) => {
